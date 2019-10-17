@@ -20,8 +20,8 @@ $(document).ready(function () {
 
 
     function handleClick(urlDin) {
-
-        // console.log(urlDin);
+        
+        $("#images").empty();
         $.ajax({
             url: urlDin,
             method: "GET"
@@ -35,8 +35,9 @@ $(document).ready(function () {
                 var imageDiv = $("#images");
                 var img = $("<img>/").attr({
                     "src": responseArr[j].images.original.url,
-                    "width": 250
+                    "width": 230
                 })
+                
                 imageDiv.append(img);
             }
         });
@@ -45,11 +46,5 @@ $(document).ready(function () {
 
 
     createButtons()
-
-
-
-
-
-
 
 })

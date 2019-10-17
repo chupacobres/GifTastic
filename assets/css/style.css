@@ -1,0 +1,15 @@
+body {
+    margin: 60px;
+}
+
+.jumbotron {
+    font-family: 'Mansalva', cursive;
+    padding: 30px;
+}
+
+.btn-primary {
+    font-family: 'Mansalva', cursive;
+}
+#images{
+    margin: 20px;
+}
