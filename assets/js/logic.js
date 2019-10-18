@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 
     function handleClick(urlDin) {
-        
+
         $("#images").empty();
         $.ajax({
             url: urlDin,
@@ -37,14 +37,25 @@ $(document).ready(function () {
                     "src": responseArr[j].images.original.url,
                     "width": 230
                 })
-                
+
                 imageDiv.append(img);
             }
         });
 
     }
+    $("#add-gif").on("click", function (event) {
+        console.log("hello")
+        event.preventDefault();
+        var newGif = $("#text-input").val().trim();
+        topics.push(newGif);
+        $("#buttons").empty();
+        $("#form-group")[0].reset();
+        createButtons();
+        
+    })
 
 
-    createButtons()
+
+createButtons()
 
 })
