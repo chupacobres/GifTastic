@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $(".btn").on("click", function (obj, id) {
             var topic = $(this).text();
-            var urlDin = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=5";
+            var urlDin = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
             handleClick(urlDin);
 
         });
@@ -27,24 +27,26 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             var responseArr = response.data;
-            console.log(responseArr.length);
+            console.log(response)
+            
 
             for (var j = 0; j < responseArr.length; j++) {
-                console.log(responseArr[j].images.original.url);
+                // console.log(responseArr[j].images.original.url);
+                // console.log(responseArr[j].rating)
 
                 var imageDiv = $("#images");
                 var img = $("<img>/").attr({
                     "src": responseArr[j].images.original.url,
                     "width": 230
                 })
-
-                imageDiv.append(img);
+                
+                imageDiv.append(img, responseArr[j].rating)
+               
             }
         });
 
     }
     $("#add-gif").on("click", function (event) {
-        console.log("hello")
         event.preventDefault();
         var newGif = $("#text-input").val().trim();
         topics.push(newGif);
